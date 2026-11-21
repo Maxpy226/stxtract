@@ -26,16 +26,16 @@ with open("conf.json", "r") as f:
 os.system("title stunner - static_one") if os.name == 'nt' else None
 
 def banner():
-    print(colorama.Fore.LIGHTMAGENTA_EX + """
+    print(colorama.Fore.YELLOW + """
           ,/           :::::::: ::::::::::: :::    ::: ::::    ::: ::::    ::: :::::::::: :::::::::        ,/
         ,'/          :+:    :+:    :+:     :+:    :+: :+:+:   :+: :+:+:   :+: :+:        :+:    :+:      ,'/
       ,' /          +:+           +:+     +:+    +:+ :+:+:+  +:+ :+:+:+  +:+ +:+        +:+    +:+     ,' /
     ,'  /_____,    +#++:++#++    +#+     +#+    +:+ +#+ +:+ +#+ +#+ +:+ +#+ +#++:++#   +#++:++#:     ,'  /_____,
-  .'____    ,'           +#+    +#+     +#+    +#+ +#+  +#+#+# +#+  +#+#+# +#+        +#+    +#+    .'____    ,'  
-       /  ,'     #+#    #+#    #+#     #+#    #+# #+#   #+#+# #+#   #+#+# #+#        #+#    #+#          /  ,'
-      / ,'      #+#    #+#    #+#     #+#    #+# #+#   #+#+# #+#   #+#+# #+#        #+#    #+#          / ,'
-     /,'        ########     ###      ########  ###    #### ###    #### ########## ###    ###          /,' 
-    /'                                                                                                /'
+  .'____    ,'           +#+    +#+     +#+    +#+ +#+  +#+#+# +#+  +#+#+# +#+        +#+    +#+   .'____    ,'  
+       /  ,'     #+#    #+#    #+#     #+#    #+# #+#   #+#+# #+#   #+#+# #+#        #+#    #+#         /  ,'
+      / ,'      #+#    #+#    #+#     #+#    #+# #+#   #+#+# #+#   #+#+# #+#        #+#    #+#         / ,'
+     /,'        ########     ###      ########  ###    #### ###    #### ########## ###    ###         /,' 
+    /'                                                                                               /'
             STUNNER - STTUN Protocol IP Logger
                                                         -static_one, 2026   """ + colorama.Style.RESET_ALL)
     print(colorama.Fore.CYAN + "=" * 120 + colorama.Style.RESET_ALL)
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     print()
     #output all ifaces with numbers for user to choose from via the proper readable names
     for i, (interface_name, interface_addresses) in enumerate(psutil.net_if_addrs().items(), start=1):
-        print(colorama.Fore.LIGHTMAGENTA_EX + f" {i}. {interface_name}" + colorama.Style.RESET_ALL)
+        print(colorama.Fore.YELLOW + f" {i}. {interface_name}" + colorama.Style.RESET_ALL)
 
     print()
     iface = input(colorama.Fore.CYAN + "Enter the network interface number to capture on (default ethernet): " + colorama.Style.RESET_ALL)
