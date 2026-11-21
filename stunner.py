@@ -15,7 +15,7 @@ import datetime
 
 colorama.init()
 
-debug = True #set to true to print debug information about the local device's public and private IPs for comparison
+debug = False #set to true to print debug information about the local device's public and private IPs for comparison
 
 
 with open("conf.json", "r") as f:
@@ -161,6 +161,7 @@ def main():
 
                     print(colorama.Fore.GREEN + f"[+] Logged information to {log_path}" + colorama.Style.RESET_ALL)
                     #stop the capture loop
+                    capture.close()
                     break
                     
             except AttributeError as e:
@@ -170,6 +171,8 @@ def main():
         print(colorama.Fore.RED + "[!] An error occurred: " + str(e) + colorama.Style.RESET_ALL)
         input("\nPress Enter to exit...")
         exit()
+    finally:
+        capture.close()
 
 if __name__ == "__main__":
     banner()
