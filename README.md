@@ -9,7 +9,7 @@
 
 ## What is STUN
 
-* STUN is a Protocol that is used mostly on IP calls (Whatsapp, Telegram, Signal, etc..), which, for some reason, exposes the destination IP adress in the Binding Success Response Packets. (0x0101) 
+* STUN is a Protocol that is used mostly on IP Peer-to-Peer calls (Whatsapp, Telegram, Signal, etc..), which, for some reason, exposes the destination IP address in the Binding Success Response Packets. (0x0101) 
 
 ## What this does
 
@@ -42,9 +42,18 @@
 * Step 3: Paste this command into the terminal: ```pip3 install -r requirements.txt ```
 * Step 4: Done!
 
+
+# Usage
+
+* **Select an Interface and start capture**
+* **Call someone on a IP call (works best with whatsapp, the only thing i have tested so far)**
+* **Wait and the IP will be extracted**
+* *Note: Discord doesn't work with this tool. They use the Protocol TURN and don't use a Peer-to-Peer connection.*
+
+
 ## Troubleshooting
 
-**Dependencies failing to install**
+**Dependencies fail to install**
   
 * If you are on Linux the chance is very high this message popped up when you tried Step 3: 
  
@@ -73,3 +82,12 @@ error: externally-managed-environment
 * The solution is to make a python venv in the folder where stunner.py is located by running: ```python3 -m venv .venv ```
 * Activating the venv is done by running: ```source .venv/bin/activate```
 * To deactivate the venv just run: ```deactivate```
+
+**Wireshark not found**
+
+* If an error message comes up after starting the capture, it means you either don't have wireshark currently installed or haven't set it up correctly. Follow the instructions in Requirements and make sure you install tshark. On Windows, select the tshark component in the installer, and on linux, run: ```sudo apt install tshark``` or ```sudo dnf install wireshark-cli``` or ```sudo pacman -S wireshark-cli```, depending on your distro.
+
+ **I keep getting the server's IP**
+
+* if it has a specific IP prefix, add the prefix to the IP whitelist in conf.json, with it having a dot after the last number. (for example: 31.13.)
+
