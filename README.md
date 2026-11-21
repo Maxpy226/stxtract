@@ -1,4 +1,4 @@
-<img width="1449" height="301" alt="grafik" src="https://github.com/user-attachments/assets/46ce4574-e41a-4ccf-bbd2-6d0373a6032c" />
+<img width="1392" height="272" alt="grafik" src="https://github.com/user-attachments/assets/1044931e-2baf-489e-8b71-9150b89f4862" />
 
 
 # Stunner - STUN Packet IP extractor
