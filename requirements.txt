@@ -1,0 +1,8 @@
+pyshark
+colorama
+requests
+psutil
+tqdm
+pyparsing
+
+
