@@ -1,7 +1,7 @@
 <img width="1449" height="301" alt="grafik" src="https://github.com/user-attachments/assets/46ce4574-e41a-4ccf-bbd2-6d0373a6032c" />
 
 
-# stunner - STUN Packet IP extractor
+# Stunner - STUN Packet IP extractor
  
 ![usage](https://img.shields.io/badge/For_Educational_purposes_only!-red) ![code](https://img.shields.io/badge/code-python3-yellow?logo=python&logoColor=3776AB) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/platform-Windows_&_Linux-white) ![Static Badge](https://img.shields.io/badge/wireshark-blue?logo=wireshark&logoColor=white)
 
