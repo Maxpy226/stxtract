@@ -1,4 +1,4 @@
-<img width="1392" height="272" alt="grafik" src="https://github.com/user-attachments/assets/1044931e-2baf-489e-8b71-9150b89f4862" />
+<img width="1459" height="262" alt="grafik" src="https://github.com/user-attachments/assets/20dbbc07-4baf-46bd-be75-d3331be0c6c9" />
 
 
 # stxtract - STUN Packet IP extractor
