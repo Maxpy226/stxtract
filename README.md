@@ -5,6 +5,8 @@
  
 ![usage](https://img.shields.io/badge/For_Educational_purposes_only!-red) ![code](https://img.shields.io/badge/code-python3-yellow?logo=python&logoColor=3776AB) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/platform-Windows_&_Linux-white) ![Static Badge](https://img.shields.io/badge/wireshark-blue?logo=wireshark&logoColor=white)
 
+**Pronounced: ess-tee-extract**
+
 *Note: This is NOT any kind of exploit! The ONLY thing this tool does, is extract information out of STUN Protocol Packets and look up that information online.* 
 
 ## What is STUN
