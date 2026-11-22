@@ -1,7 +1,7 @@
 <img width="1392" height="272" alt="grafik" src="https://github.com/user-attachments/assets/1044931e-2baf-489e-8b71-9150b89f4862" />
 
 
-# Stunner - STUN Packet IP extractor
+# stxtract - STUN Packet IP extractor
  
 ![usage](https://img.shields.io/badge/For_Educational_purposes_only!-red) ![code](https://img.shields.io/badge/code-python3-yellow?logo=python&logoColor=3776AB) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/platform-Windows_&_Linux-white) ![Static Badge](https://img.shields.io/badge/wireshark-blue?logo=wireshark&logoColor=white)
 
@@ -13,7 +13,7 @@
 
 ## What this does
 
-* This tool uses the console version of Wireshark (tshark and pyshark) to extract the destination IP out of STUN Packets.
+* stxtract uses the console version of Wireshark (tshark and pyshark) to extract the destination IP out of STUN Packets.
 * Then, a IP lookup is triggered which then shows some useful details about the IP. (ISP, City, Country, Zip code, Lat., Long, etc..)
 **THE SHOWN LOCATION DATA IS NOT EXACT; IT ONLY SHOWS THE NEAREST LOCATION OF THE ISP FROM THE TARGET; NOT THE DEVICE ITSELF.**
 
@@ -79,7 +79,7 @@ error: externally-managed-environment
 ``` 
 
 
-* The solution is to make a python venv in the folder where stunner.py is located by running: ```python3 -m venv .venv ```
+* The solution is to make a python venv in the folder where stxtract.py is located by running: ```python3 -m venv .venv ```
 * Activating the venv is done by running: ```source .venv/bin/activate```
 * To deactivate the venv just run: ```deactivate```
 
