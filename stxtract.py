@@ -20,13 +20,13 @@ debug = False #set to true to print debug information about the local device's p
 
 with open("conf.json", "r") as f:
     config = json.load(f)
-    ip_whitelist = config.get("ip_whitelist", [])
+    ip_blacklist = config.get("ip_blacklist", [])
 
 #set the title of the console window
 os.system("title stxtract - static_one") if os.name == 'nt' else None
 
 def banner():
-    print(colorama.Fore.LIGHTYELLOW_EX + """
+    print(colorama.Fore.LIGHTMAGENTA_EX + """
          ,/                                                                                                     ,/
        ,'/          :::::::: ::::::::::: :::    ::: ::::::::::: :::::::::      :::      :::::::: :::::::::::  ,'/
      ,' /         :+:    :+:    :+:     :+:    :+:     :+:     :+:    :+:   :+: :+:   :+:    :+:    :+:     ,' /
@@ -38,9 +38,14 @@ def banner():
    /'                                                                                                     /'
             stxtract - STUN Protocol IP Logger
                                                         -static, 2026   """ + colorama.Style.RESET_ALL)
-    print(colorama.Fore.CYAN + "=" * 120 + colorama.Style.RESET_ALL)
+    print()
+    print(colorama.Fore.CYAN + "<" + "=" * 120 + ">" + colorama.Style.RESET_ALL)
+    print()
     if debug:
         print(colorama.Fore.GREEN + "[-] Debug Mode Enabled" + colorama.Style.RESET_ALL)
+
+    if ip_blacklist:
+        print(colorama.Fore.RED + "[!] WARNING: IP BLACKLIST IS ENABLED FOR " + str(ip_blacklist) + colorama.Style.RESET_ALL)
 
 def check_for_wireshark_install():
     try:
@@ -86,7 +91,7 @@ def main():
                         address
                         for address in (ipsrc, ipdst)
                         if address not in ignored_ips
-                        and not any(address.startswith(prefix) for prefix in ip_whitelist)
+                        and not any(address.startswith(prefix) for prefix in ip_blacklist)
                     ]
                     if not candidate_ips:
                         continue
@@ -177,17 +182,14 @@ def main():
 if __name__ == "__main__":
     banner()
 
-    if ip_whitelist:
-        print(colorama.Fore.RED + "[!] WARNING: IP WHITELIST IS ENABLED FOR " + str(ip_whitelist) + colorama.Style.RESET_ALL)
-
     global iface
     print()
     #output all ifaces with numbers for user to choose from via the proper readable names
     for i, (interface_name, interface_addresses) in enumerate(psutil.net_if_addrs().items(), start=1):
-        print(colorama.Fore.YELLOW + f" {i}. {interface_name}" + colorama.Style.RESET_ALL)
+        print(colorama.Fore.MAGENTA + f" {i}. {interface_name}" + colorama.Style.RESET_ALL)
 
     print()
-    iface = input(colorama.Fore.CYAN + "Enter the network interface number to capture on (default ethernet): " + colorama.Style.RESET_ALL)
+    iface = input(colorama.Fore.CYAN + "Enter the network interface number to capture on (default ethernet) >>> " + colorama.Style.RESET_ALL)
     
 
     if iface == "":

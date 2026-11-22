@@ -24,7 +24,7 @@
 * VPN and Proxy detection
 * Server detection
 * Mobile Network detection
-* IP whitelisting (changed in conf.json, default are the IP prefixes of Whatsapp Servers if it hits the wrong packet, recommend to not remove those)
+* IP blacklisting (changed in conf.json, default are the IP prefixes of Whatsapp Servers if it hits the wrong packet, recommend to not remove those)
 * Logging of detections to the out folder
 
 # Installing 
@@ -91,5 +91,5 @@ error: externally-managed-environment
 
  **I keep getting the server's IP**
 
-* if it has a specific IP prefix, add the prefix to the IP whitelist in conf.json, with it having a dot after the last number. (for example: 31.13.)
+* if it has a specific IP prefix, add the prefix to the IP blacklist in conf.json, with it having a dot after the last number. (for example: 31.13.)
 
