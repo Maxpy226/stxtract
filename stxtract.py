@@ -63,25 +63,26 @@ def main():
         #after check is successful, clear the screen and print the banner again before starting the capture 
         os.system('cls' if os.name == 'nt' else 'clear')
         banner()
-        print(colorama.Fore.CYAN + f"[*] Starting capture on interface: {iface}" + colorama.Style.RESET_ALL)
-        print(colorama.Fore.CYAN + "[*] Waiting for packets..." + colorama.Style.RESET_ALL)
+        print()
+        localpublicip = requests.get('https://api.ipify.org').text #get the public ip of the local device using an api
+        #get the private ip
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))  # Google DNS for testing connection, doesn't actually send data
+        privateip = s.getsockname()[0]
+        s.close()
+        if debug:
+            print(colorama.Fore.GREEN + "[-] Debug Information (for comparing IPs)" + colorama.Style.RESET_ALL)
+            print(colorama.Fore.CYAN + f"Local Public IP: {localpublicip}" + colorama.Style.RESET_ALL)
+            print(colorama.Fore.CYAN + f"Local Private IP: {privateip}" + colorama.Style.RESET_ALL)
+        print()
+        print(colorama.Fore.LIGHTYELLOW_EX + f"[*] Starting capture on interface: {iface}" + colorama.Style.RESET_ALL)
+        print(colorama.Fore.LIGHTYELLOW_EX + "[*] Waiting for packets..." + colorama.Style.RESET_ALL)
         #start of main capture process
         capture = pyshark.LiveCapture(interface=iface, display_filter='stun')
 
         for packet in capture.sniff_continuously():
             try:
                 if packet.stun.type == '0x0101': #binding success response 
-
-                    localpublicip = requests.get('https://api.ipify.org').text #get the public ip of the local device using an api
-                    #get the private ip
-                    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                    s.connect(("8.8.8.8", 80))  # Google DNS for testing connection, doesn't actually send data
-                    privateip = s.getsockname()[0]
-                    s.close()
-                    if debug:
-                        print(colorama.Fore.GREEN + "[-] Debug Information (for comparing IPs)" + colorama.Style.RESET_ALL)
-                        print(colorama.Fore.CYAN + f"Local Public IP: {localpublicip}" + colorama.Style.RESET_ALL)
-                        print(colorama.Fore.CYAN + f"Local Private IP: {privateip}" + colorama.Style.RESET_ALL)
 
                     ipsrc = packet.ip.src
                     ipdst = packet.ip.dst
