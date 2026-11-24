@@ -208,7 +208,7 @@ if __name__ == "__main__":
             print(colorama.Fore.RED + "[!] Invalid interface number. Exiting..." + colorama.Style.RESET_ALL)
             exit()
 
-    print(colorama.Fore.CYAN + f"[*] Starting STUN capture on interface: {iface}" + colorama.Style.RESET_ALL)
+    print(colorama.Fore.YELLOW + f"[*] Starting STUN capture on interface: {iface}" + colorama.Style.RESET_ALL)
     main()
     
     input("\nPress Enter to exit...")
